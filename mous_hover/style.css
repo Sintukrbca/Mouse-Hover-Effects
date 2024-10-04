@@ -1,0 +1,105 @@
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.one-div {
+  position: relative;
+  height: 250px;
+  width: 200px;
+  background-image: url('img.jpg');
+  background-size: cover;
+  background-position: center;
+  transform-style: preserve-3d;
+  animation: rot 2s infinite ease;
+  border-radius: 20px;
+  box-shadow: 0 0 50px 0px 
+  rgba(255, 254, 254, 0.756),
+    inset 0 0 50px 0px 
+    rgba(249, 247, 247, 0.82);
+  transition: 1s;
+}
+
+.one-div::after {
+  font-size: 30px;
+  text-shadow: 5px 5px 1px black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  color: rgb(255, 249, 249);
+}
+
+.one-div:hover.one-div::after {
+  font-size: 40px;
+}
+
+.one-div::before {
+  content: '';
+  color: white;
+  font-size: 25px;
+  letter-spacing: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -20px;
+  left: 40px;
+  background-image: url('img1.avif');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  width: 220px;
+  height: 270px;
+  transform: translateY(50px) translateZ(50px);
+  border-radius: 20px;
+  filter: blur(0px);
+  transition: 0.5s;
+  box-shadow: 0 0 5px 0px rgb(228, 225, 225), -3px -3px 10px 3px rgba(167, 163, 163, 0.441), inset 0px 0px 40px -20px rgb(0, 0, 0);
+}
+
+.one-div:active.one-div::after {
+  text-shadow: 0 0 0 rgb(252, 247, 247);
+  transition: 0.5s;
+  transform: translateY(5px) translateZ(5px);
+}
+
+.one-div:hover.one-div::before {
+  font-size: 10px;
+  width: 250px;
+  height: 300px;
+  transform: translateZ(-50px) translateY(50px);
+  box-shadow: 0 0 5px 0px rgb(210, 200, 200), 
+  -3px -3px 10px 3px rgb(139, 131, 131),
+   inset 0px 0px 40px -20px;
+}
+
+.one-div:hover {
+  height: 300px;
+  width: 250px;
+  box-shadow: 0 0 5px 0px rgb(167, 157, 157), inset -3px -3px 10px 3px rgb(11, 10, 10), inset 3px 3px 20px 3px black;
+  cursor: pointer;
+}
+
+@keyframes rot {
+  0% {
+    transform: rotateX(-15deg) translateY(0px);
+  }
+
+  50% {
+    transform: rotateX(-15deg) translateY(-10px);
+  }
+
+  100% {
+    transform: rotateX(-15deg) translateY(0px);
+  }
+}
